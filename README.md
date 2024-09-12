@@ -2,7 +2,7 @@
 This project implements MCB's Customer Onboarding Application using C# .NET 8 with a Blazor frontend.
 
 ## Customer Form:
-* Implements all 12 required fields for customer information.
+* Implements fields for customer information.
 * Provides dropdown menus and text inputs as specified.
 
 ## Backend API:
