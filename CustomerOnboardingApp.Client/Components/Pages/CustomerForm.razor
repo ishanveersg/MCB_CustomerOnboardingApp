@@ -1,0 +1,43 @@
+﻿@page "/"
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<h3>Customer Onboarding Application</h3>
+
+<EditForm Model="@application" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="mainPurpose">Main Purpose:</label>
+        <InputSelect id="mainPurpose" @bind-Value="application.MainPurpose" class="form-control">
+            <option value="">Select a purpose</option>
+            <option value="Investment portfolio">Investment portfolio</option>
+            <option value="Account to operate locally">Account to operate locally</option>
+            <option value="Account to operate overseas">Account to operate overseas</option>
+            <option value="Energy & commodities financing">Energy & commodities financing</option>
+        </InputSelect>
+    </div>
+
+    <div class="form-group">
+        <label for="companyName">Company Name:</label>
+        <InputText id="companyName" @bind-Value="application.CompanyName" class="form-control" />
+    </div>
+
+    <!-- Add more form fields for the remaining properties -->
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+@code {
+    private CustomerApplication application = new CustomerApplication();
+
+    private async Task HandleValidSubmit()
+    {
+        var response = await Http.PostAsJsonAsync("api/customer", application);
+        if (response.IsSuccessStatusCode)
+        {
+            NavigationManager.NavigateTo("/thank-you");
+        }
+    }
+}

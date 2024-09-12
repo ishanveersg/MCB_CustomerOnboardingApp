@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "nc9ilYDwf4K4Gd73jDSlRyLZ+z5FUrDRNM2WU0KbsRM=",
+  "Source": "CustomerOnboardingApp.Server",
+  "BasePath": "_content/CustomerOnboardingApp.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
